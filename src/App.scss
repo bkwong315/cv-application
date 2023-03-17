@@ -9,7 +9,7 @@
 }
 
 header {
-  background-color: darkcyan;
+  background-color: $primary-color;
   color: white;
   padding: 1.5rem 2rem;
 }
@@ -27,7 +27,7 @@ main {
 
   .cv-builder {
     @include cv-card;
-    border: 0.25rem solid darkcyan;
+    border: 0.25rem solid $primary-color;
   }
 
   .cv-preview {
@@ -43,6 +43,6 @@ footer {
 
   padding: 0.5rem 0;
 
-  background-color: darkcyan;
+  background-color: $primary-color;
   color: white;
 }
