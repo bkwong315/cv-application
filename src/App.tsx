@@ -9,6 +9,8 @@ class App extends React.Component {
         <header>
           <h1>CV Builder</h1>
         </header>
+        <main></main>
+        <footer>GitHub</footer>
       </div>
     );
   }
