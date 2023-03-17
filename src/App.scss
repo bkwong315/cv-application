@@ -1,0 +1,15 @@
+@import './globals.scss';
+
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  min-height: 100svh;
+  min-height: 100dvh;
+}
+
+header {
+  background-color: darkcyan;
+  color: white;
+  padding: 1.5rem 2rem;
+}

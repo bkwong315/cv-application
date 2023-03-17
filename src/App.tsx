@@ -1,8 +1,16 @@
 import * as React from 'react';
 
+import './App.scss';
+
 class App extends React.Component {
   render() {
-    return <h1>CV Application</h1>;
+    return (
+      <div className='layout'>
+        <header>
+          <h1>CV Builder</h1>
+        </header>
+      </div>
+    );
   }
 }
 
