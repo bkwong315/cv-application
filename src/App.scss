@@ -27,7 +27,9 @@ main {
 
   .cv-builder {
     @include cv-card;
+
     border: 0.25rem solid $primary-color;
+    padding: 1rem;
   }
 
   .cv-preview {
