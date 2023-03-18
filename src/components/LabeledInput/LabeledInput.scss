@@ -2,20 +2,19 @@
 
 .input-wrapper {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.5rem;
   font-weight: 700;
 
   input[type='text'] {
     font-weight: inherit;
-    border: none;
-    background: $primary-color;
-    padding: 0.5rem;
+    border: 2px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 1px $primary-color;
+    padding: 0.25rem;
     border-radius: 0.5rem;
-    color: white;
 
     &:focus-visible {
       outline: transparent;
-      filter: brightness(110%);
+      box-shadow: 0 0 0 2px $primary-color;
     }
   }
 }
