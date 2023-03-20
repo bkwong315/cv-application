@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
+import ExpEditor from './components/ExpEditor/ExpEditor';
 import './App.scss';
 
 interface AppState {
@@ -50,6 +51,7 @@ class App extends React.Component<{}, AppState> {
               onChangeHandler={this.handlePersonalInfoChange}
             />
             <h3>Experience</h3>
+            <ExpEditor />
             <h3>Education</h3>
           </div>
           <div className='cv-preview'></div>
