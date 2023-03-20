@@ -20,11 +20,13 @@ class ExpItem extends React.Component {
         <LabeledInput
           inputId='start-date'
           inputName='Start Date'
+          inputType='date'
           onChangeHandler={() => {}}
         />
         <LabeledInput
           inputId='end-date'
           inputName='End Date'
+          inputType='date'
           onChangeHandler={() => {}}
         />
         <LabeledInput
