@@ -20,3 +20,9 @@ $primary-color: rgb(46, 145, 158);
   max-width: 40vw;
   height: 90%;
 }
+
+@mixin editor-item-grid {
+  display: grid;
+  padding: 1rem 0.5rem;
+  gap: 0.5rem;
+}

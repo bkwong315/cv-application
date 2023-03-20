@@ -1,0 +1,5 @@
+@import '../../globals.scss';
+
+.exp-item {
+  @include editor-item-grid;
+}
