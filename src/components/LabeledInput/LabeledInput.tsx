@@ -5,6 +5,7 @@ import './LabeledInput.scss';
 interface LabeledInputProps {
   inputId: string;
   inputName: string;
+  inputType?: string;
   onChangeHandler: (
     e: React.ChangeEvent<HTMLInputElement>,
     field: string
@@ -12,6 +13,10 @@ interface LabeledInputProps {
 }
 
 class LabeledInput extends React.Component<LabeledInputProps> {
+  public static defaultProps = {
+    inputType: 'text',
+  };
+
   inputValue: string;
 
   constructor(props: LabeledInputProps) {
@@ -21,13 +26,13 @@ class LabeledInput extends React.Component<LabeledInputProps> {
   }
 
   render() {
-    const { inputId, inputName, onChangeHandler } = this.props;
+    const { inputId, inputName, inputType, onChangeHandler } = this.props;
 
     return (
       <div className={`${inputId}-wrapper input-wrapper`}>
         <label htmlFor={inputId}>{inputName}</label>
         <input
-          type='text'
+          type={`${inputType}`}
           id={`${inputId}`}
           onChange={(e) => {
             const inputNameArr = inputName.split(' ');
