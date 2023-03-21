@@ -6,7 +6,7 @@ interface LabeledInputProps {
   inputId: string;
   inputName: string;
   inputType?: string;
-  className: string;
+  classes?: string;
   onChangeHandler: (
     e: React.ChangeEvent<HTMLInputElement>,
     field: string
@@ -27,10 +27,11 @@ class LabeledInput extends React.Component<LabeledInputProps> {
   }
 
   render() {
-    const { inputId, inputName, inputType, onChangeHandler } = this.props;
+    const { inputId, inputName, inputType, classes, onChangeHandler } =
+      this.props;
 
     return (
-      <div className={`${inputId}-wrapper input-wrapper`}>
+      <div className={`${inputId}-wrapper input-wrapper ${classes}`}>
         <label htmlFor={inputId}>{inputName}</label>
         {inputType !== 'textarea' ? (
           <input
