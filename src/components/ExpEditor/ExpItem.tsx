@@ -36,6 +36,7 @@ class ExpItem extends React.Component {
           onChangeHandler={() => {}}
           classes='span-full-width'
         />
+        <button className='del-btn span-full-width'>Delete</button>
       </div>
     );
   }
