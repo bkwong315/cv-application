@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
@@ -12,7 +13,7 @@ interface AppState {
     email: string;
     telephone: string;
   };
-  experience: Array<Experience>;
+  experience: { [key: string]: Experience };
 }
 
 interface Experience {
@@ -34,7 +35,7 @@ class App extends React.Component<{}, AppState> {
         email: '',
         telephone: '',
       },
-      experience: [],
+      experience: {},
     };
   }
 
@@ -51,10 +52,16 @@ class App extends React.Component<{}, AppState> {
   handleAddExperience = () => {
     this.setState((state) => ({
       ...state,
-      experience: [
+      experience: {
         ...state.experience,
-        { title: '', company: '', startDate: '', endDate: '', duties: '' },
-      ],
+        [uuidv4()]: {
+          title: '',
+          company: '',
+          startDate: '',
+          endDate: '',
+          duties: '',
+        },
+      },
     }));
   };
 
