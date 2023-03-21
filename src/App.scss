@@ -17,13 +17,14 @@ header {
 main {
   @media only screen and (min-width: 830px) {
     flex-direction: row;
-    gap: calc(2rem + 3vw);
   }
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: calc(1vh + 1rem) 0;
+  gap: calc(2rem + 3vw);
 
   .cv-builder {
     @include cv-card;
