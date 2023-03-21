@@ -23,3 +23,16 @@ $primary-color: rgb(46, 145, 158);
   padding: 1rem 0.5rem;
   gap: 0.5rem;
 }
+
+@mixin button($bg-color, $bg-color-hover) {
+  padding: 0.5rem;
+  color: white;
+  background-color: $bg-color;
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $bg-color-hover;
+  }
+}
