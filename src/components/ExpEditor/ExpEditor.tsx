@@ -3,12 +3,19 @@ import * as React from 'react';
 import ExpItem from './ExpItem';
 import './ExpEditor.scss';
 
-class ExpEditor extends React.Component {
+interface ExpEditorProps {
+  handleAddExperience: () => void;
+}
+
+class ExpEditor extends React.Component<ExpEditorProps> {
   render() {
+    const { handleAddExperience } = this.props;
     return (
       <div className='exp-editor'>
         <ExpItem />
-        <button className='add-exp-btn'>Add Experience</button>
+        <button className='add-exp-btn' onClick={handleAddExperience}>
+          Add Experience
+        </button>
       </div>
     );
   }

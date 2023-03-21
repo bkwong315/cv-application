@@ -48,6 +48,16 @@ class App extends React.Component<{}, AppState> {
     }));
   };
 
+  handleAddExperience = () => {
+    this.setState((state) => ({
+      ...state,
+      experience: [
+        ...state.experience,
+        { title: '', company: '', startDate: '', endDate: '', duties: '' },
+      ],
+    }));
+  };
+
   render() {
     return (
       <div className='layout'>
@@ -61,7 +71,7 @@ class App extends React.Component<{}, AppState> {
               onChangeHandler={this.handlePersonalInfoChange}
             />
             <h3>Experience</h3>
-            <ExpEditor />
+            <ExpEditor handleAddExperience={this.handleAddExperience} />
             <h3>Education</h3>
           </div>
           <div className='cv-preview'></div>
