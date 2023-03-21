@@ -12,6 +12,15 @@ interface AppState {
     email: string;
     telephone: string;
   };
+  experience: Array<Experience>;
+}
+
+interface Experience {
+  title: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+  duties: string;
 }
 
 class App extends React.Component<{}, AppState> {
@@ -25,6 +34,7 @@ class App extends React.Component<{}, AppState> {
         email: '',
         telephone: '',
       },
+      experience: [],
     };
   }
 
