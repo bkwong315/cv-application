@@ -65,6 +65,23 @@ class App extends React.Component<{}, AppState> {
     }));
   };
 
+  handleExperienceChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    id: string,
+    field: string
+  ) => {
+    this.setState((state) => ({
+      ...state,
+      experience: {
+        ...state.experience,
+        [id]: {
+          ...state.experience.id,
+          [field]: e.target.value,
+        },
+      },
+    }));
+  };
+
   render() {
     return (
       <div className='layout'>
@@ -78,7 +95,10 @@ class App extends React.Component<{}, AppState> {
               onChangeHandler={this.handlePersonalInfoChange}
             />
             <h3>Experience</h3>
-            <ExpEditor handleAddExperience={this.handleAddExperience} />
+            <ExpEditor
+              handleAddExperience={this.handleAddExperience}
+              handleExperienceChange={handleExperienceChange}
+            />
             <h3>Education</h3>
           </div>
           <div className='cv-preview'></div>
