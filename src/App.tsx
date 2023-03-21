@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
+import Experience from './interfaces/Experience';
 import './App.scss';
 
 interface AppState {
@@ -14,14 +15,6 @@ interface AppState {
     telephone: string;
   };
   experience: { [key: string]: Experience };
-}
-
-interface Experience {
-  title: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  duties: string;
 }
 
 class App extends React.Component<{}, AppState> {
@@ -40,7 +33,7 @@ class App extends React.Component<{}, AppState> {
   }
 
   handlePersonalInfoChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     field: string
   ) => {
     this.setState((state) => ({
@@ -55,7 +48,7 @@ class App extends React.Component<{}, AppState> {
       experience: {
         ...state.experience,
         [uuidv4()]: {
-          title: '',
+          jobTitle: '',
           company: '',
           startDate: '',
           endDate: '',
@@ -66,16 +59,16 @@ class App extends React.Component<{}, AppState> {
   };
 
   handleExperienceChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    id: string,
-    field: string
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: string,
+    id: string
   ) => {
     this.setState((state) => ({
       ...state,
       experience: {
         ...state.experience,
         [id]: {
-          ...state.experience.id,
+          ...state.experience[id],
           [field]: e.target.value,
         },
       },
@@ -96,8 +89,9 @@ class App extends React.Component<{}, AppState> {
             />
             <h3>Experience</h3>
             <ExpEditor
+              experiences={this.state.experience}
               handleAddExperience={this.handleAddExperience}
-              handleExperienceChange={handleExperienceChange}
+              handleExperienceChange={this.handleExperienceChange}
             />
             <h3>Education</h3>
           </div>

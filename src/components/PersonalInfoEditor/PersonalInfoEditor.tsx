@@ -5,7 +5,7 @@ import './PersonalInfoEditor.scss';
 
 interface PersonalInfoEditorProps {
   onChangeHandler: (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     field: string
   ) => void;
 }
