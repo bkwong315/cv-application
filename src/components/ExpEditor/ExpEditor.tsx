@@ -8,6 +8,7 @@ class ExpEditor extends React.Component {
     return (
       <div className='exp-editor'>
         <ExpItem />
+        <button className='add-exp-btn'>Add Experience</button>
       </div>
     );
   }
