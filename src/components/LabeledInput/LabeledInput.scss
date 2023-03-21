@@ -5,6 +5,7 @@
   gap: 0.5rem;
   font-weight: 700;
 
+  textarea,
   input {
     width: 100%;
     font-weight: inherit;
@@ -17,5 +18,9 @@
       outline: transparent;
       box-shadow: 0 0 0 2px $primary-color;
     }
+  }
+
+  textarea {
+    resize: none;
   }
 }

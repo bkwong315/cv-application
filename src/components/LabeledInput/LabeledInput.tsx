@@ -6,6 +6,7 @@ interface LabeledInputProps {
   inputId: string;
   inputName: string;
   inputType?: string;
+  className: string;
   onChangeHandler: (
     e: React.ChangeEvent<HTMLInputElement>,
     field: string
@@ -31,15 +32,19 @@ class LabeledInput extends React.Component<LabeledInputProps> {
     return (
       <div className={`${inputId}-wrapper input-wrapper`}>
         <label htmlFor={inputId}>{inputName}</label>
-        <input
-          type={`${inputType}`}
-          id={`${inputId}`}
-          onChange={(e) => {
-            const inputNameArr = inputName.split(' ');
-            inputNameArr[0] = inputNameArr[0].toLowerCase();
-            onChangeHandler(e, `${inputNameArr.join('')}`);
-          }}
-        />
+        {inputType !== 'textarea' ? (
+          <input
+            type={`${inputType}`}
+            id={`${inputId}`}
+            onChange={(e) => {
+              const inputNameArr = inputName.split(' ');
+              inputNameArr[0] = inputNameArr[0].toLowerCase();
+              onChangeHandler(e, `${inputNameArr.join('')}`);
+            }}
+          />
+        ) : (
+          <textarea></textarea>
+        )}
       </div>
     );
   }
