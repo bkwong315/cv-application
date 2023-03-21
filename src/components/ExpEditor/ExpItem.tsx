@@ -32,7 +32,9 @@ class ExpItem extends React.Component {
         <LabeledInput
           inputId='job-duties'
           inputName='Duties'
+          inputType='textarea'
           onChangeHandler={() => {}}
+          classes='span-full-width'
         />
       </div>
     );
