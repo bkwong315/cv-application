@@ -11,8 +11,5 @@
 
   .del-btn {
     @include button(#e00b00, #ff0b00);
-
-    border: none;
-    border-radius: 0.5rem;
   }
 }
