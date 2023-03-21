@@ -22,6 +22,7 @@
     "@babel/preset-react": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/uuid": "^9.0.1",
     "babel-loader": "latest",
     "clean-webpack-plugin": "latest",
     "copy-webpack-plugin": "latest",
@@ -36,6 +37,7 @@
     "style-loader": "latest",
     "ts-loader": "latest",
     "typescript": "latest",
+    "uuid": "^9.0.0",
     "webpack": "latest",
     "webpack-cli": "latest",
     "webpack-dev-server": "^4.12.0"
