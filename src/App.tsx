@@ -2,6 +2,7 @@ import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
+import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
 import Experience from './interfaces/Experience';
 import './App.scss';
@@ -104,6 +105,7 @@ class App extends React.Component<{}, AppState> {
               handleExperienceChange={this.handleExperienceChange}
             />
             <h3>Education</h3>
+            <EducationEditor />
           </div>
           <div className='cv-preview'></div>
         </main>
