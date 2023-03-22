@@ -5,6 +5,7 @@ import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEdit
 import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
 import Experience from './interfaces/Experience';
+import Education from './interfaces/Education';
 import './App.scss';
 
 interface AppState {
@@ -16,6 +17,7 @@ interface AppState {
     telephone: string;
   };
   experience: { [key: string]: Experience };
+  education: { [key: string]: Education };
 }
 
 class App extends React.Component<{}, AppState> {
@@ -30,6 +32,7 @@ class App extends React.Component<{}, AppState> {
         telephone: '',
       },
       experience: {},
+      education: {},
     };
   }
 
