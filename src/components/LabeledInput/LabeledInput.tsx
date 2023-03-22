@@ -52,7 +52,7 @@ class LabeledInput extends React.Component<LabeledInputProps> {
     };
 
     return (
-      <div className={`${inputId}-wrapper input-wrapper ${classes}`}>
+      <div className={`${inputId}-wrapper input-wrapper ${classes || ''}`}>
         <label htmlFor={inputId}>{inputName}</label>
         {inputType !== 'textarea' ? (
           <input
