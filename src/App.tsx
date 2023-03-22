@@ -58,6 +58,15 @@ class App extends React.Component<{}, AppState> {
     }));
   };
 
+  handleDeleteExperience = (id: string) => {
+    this.setState((state) => {
+      let mutatedState = Object.assign({}, state);
+      delete mutatedState.experience[id];
+
+      return mutatedState;
+    });
+  };
+
   handleExperienceChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     field: string,
@@ -91,6 +100,7 @@ class App extends React.Component<{}, AppState> {
             <ExpEditor
               experiences={this.state.experience}
               handleAddExperience={this.handleAddExperience}
+              handleDeleteExperience={this.handleDeleteExperience}
               handleExperienceChange={this.handleExperienceChange}
             />
             <h3>Education</h3>

@@ -5,6 +5,7 @@ import './ExpItem.scss';
 
 interface ExpItemProps {
   id: string;
+  handleDelete: (id: string) => void;
   onChangeHandler: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     id: string,
@@ -14,7 +15,7 @@ interface ExpItemProps {
 
 class ExpItem extends React.Component<ExpItemProps> {
   render() {
-    const { id, onChangeHandler } = this.props;
+    const { id, handleDelete, onChangeHandler } = this.props;
     return (
       <div className='exp-item'>
         <LabeledInput
@@ -51,7 +52,11 @@ class ExpItem extends React.Component<ExpItemProps> {
           onChangeHandler={onChangeHandler}
           classes='span-full-width'
         />
-        <button className='del-btn span-full-width'>Delete</button>
+        <button
+          className='del-btn span-full-width'
+          onClick={() => handleDelete(id)}>
+          Delete
+        </button>
       </div>
     );
   }

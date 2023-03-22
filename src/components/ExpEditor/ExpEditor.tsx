@@ -7,6 +7,7 @@ import './ExpEditor.scss';
 interface ExpEditorProps {
   experiences: { [key: string]: Experience };
   handleAddExperience: () => void;
+  handleDeleteExperience: (id: string) => void;
   handleExperienceChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     id: string,
@@ -16,14 +17,19 @@ interface ExpEditorProps {
 
 class ExpEditor extends React.Component<ExpEditorProps> {
   render() {
-    const { experiences, handleAddExperience, handleExperienceChange } =
-      this.props;
+    const {
+      experiences,
+      handleAddExperience,
+      handleDeleteExperience,
+      handleExperienceChange,
+    } = this.props;
     return (
       <div className='exp-editor'>
-        {Object.keys(experiences).map((key, idx) => (
+        {Object.keys(experiences).map((key) => (
           <ExpItem
-            key={idx}
+            key={key}
             id={key}
+            handleDelete={handleDeleteExperience}
             onChangeHandler={handleExperienceChange}
           />
         ))}
