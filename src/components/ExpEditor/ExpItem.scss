@@ -1,0 +1,15 @@
+@import '../../globals.scss';
+
+.exp-item {
+  @include editor-item-grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  .span-full-width {
+    grid-column: 1 / -1;
+  }
+
+  .del-btn {
+    @include button(#e00b00, #ff0b00);
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../globals.scss';
+
+.input-wrapper {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 700;
+
+  textarea,
+  input {
+    width: 100%;
+    font-weight: inherit;
+    border: 2px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 1px $primary-color;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+
+    &:focus-visible {
+      outline: transparent;
+      box-shadow: 0 0 0 2px $primary-color;
+    }
+  }
+
+  textarea {
+    resize: none;
+    height: 5rem;
+  }
+}
