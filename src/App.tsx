@@ -88,6 +88,48 @@ class App extends React.Component<{}, AppState> {
     }));
   };
 
+  handleAddEducation = () => {
+    this.setState((state) => ({
+      ...state,
+      education: {
+        ...state.education,
+        [uuidv4()]: {
+          institution: '',
+          degree: '',
+          subject: '',
+          startDate: '',
+          endDate: '',
+        },
+      },
+    }));
+  };
+
+  handleDeleteEducation = (id: string) => {
+    this.setState((state) => {
+      let mutatedState = Object.assign({}, state);
+      delete mutatedState.education[id];
+
+      return mutatedState;
+    });
+  };
+
+  handleEducationChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: string,
+    id: string
+  ) => {
+    this.setState((state) => ({
+      ...state,
+      education: {
+        ...state.education,
+        [id]: {
+          ...state.education[id],
+          [field]: e.target.value,
+        },
+      },
+    }));
+  };
+
   render() {
     return (
       <div className='layout'>
@@ -108,7 +150,12 @@ class App extends React.Component<{}, AppState> {
               handleExperienceChange={this.handleExperienceChange}
             />
             <h3>Education</h3>
-            <EducationEditor />
+            <EducationEditor
+              education={this.state.education}
+              addHandler={this.handleAddEducation}
+              deleteHandler={this.handleDeleteEducation}
+              onChangeHandler={this.handleEducationChange}
+            />
           </div>
           <div className='cv-preview'></div>
         </main>
