@@ -2,8 +2,10 @@ import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
+import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
 import Experience from './interfaces/Experience';
+import Education from './interfaces/Education';
 import './App.scss';
 
 interface AppState {
@@ -15,6 +17,7 @@ interface AppState {
     telephone: string;
   };
   experience: { [key: string]: Experience };
+  education: { [key: string]: Education };
 }
 
 class App extends React.Component<{}, AppState> {
@@ -29,6 +32,7 @@ class App extends React.Component<{}, AppState> {
         telephone: '',
       },
       experience: {},
+      education: {},
     };
   }
 
@@ -58,6 +62,15 @@ class App extends React.Component<{}, AppState> {
     }));
   };
 
+  handleDeleteExperience = (id: string) => {
+    this.setState((state) => {
+      let mutatedState = Object.assign({}, state);
+      delete mutatedState.experience[id];
+
+      return mutatedState;
+    });
+  };
+
   handleExperienceChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     field: string,
@@ -69,6 +82,48 @@ class App extends React.Component<{}, AppState> {
         ...state.experience,
         [id]: {
           ...state.experience[id],
+          [field]: e.target.value,
+        },
+      },
+    }));
+  };
+
+  handleAddEducation = () => {
+    this.setState((state) => ({
+      ...state,
+      education: {
+        ...state.education,
+        [uuidv4()]: {
+          institution: '',
+          degree: '',
+          subject: '',
+          startDate: '',
+          endDate: '',
+        },
+      },
+    }));
+  };
+
+  handleDeleteEducation = (id: string) => {
+    this.setState((state) => {
+      let mutatedState = Object.assign({}, state);
+      delete mutatedState.education[id];
+
+      return mutatedState;
+    });
+  };
+
+  handleEducationChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: string,
+    id: string
+  ) => {
+    this.setState((state) => ({
+      ...state,
+      education: {
+        ...state.education,
+        [id]: {
+          ...state.education[id],
           [field]: e.target.value,
         },
       },
@@ -91,9 +146,16 @@ class App extends React.Component<{}, AppState> {
             <ExpEditor
               experiences={this.state.experience}
               handleAddExperience={this.handleAddExperience}
+              handleDeleteExperience={this.handleDeleteExperience}
               handleExperienceChange={this.handleExperienceChange}
             />
             <h3>Education</h3>
+            <EducationEditor
+              education={this.state.education}
+              addHandler={this.handleAddEducation}
+              deleteHandler={this.handleDeleteEducation}
+              onChangeHandler={this.handleEducationChange}
+            />
           </div>
           <div className='cv-preview'></div>
         </main>

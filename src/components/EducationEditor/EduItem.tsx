@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import LabeledInput from '../LabeledInput/LabeledInput';
-import './ExpItem.scss';
+import './EduItem.scss';
 
-interface ExpItemProps {
+interface EduItemProps {
   id: string;
   handleDelete: (id: string) => void;
   onChangeHandler: (
@@ -13,21 +13,27 @@ interface ExpItemProps {
   ) => void;
 }
 
-class ExpItem extends React.Component<ExpItemProps> {
+class EduItem extends React.Component<EduItemProps> {
   render() {
     const { id, handleDelete, onChangeHandler } = this.props;
     return (
-      <div className='exp-item'>
+      <div className='edu-item'>
         <LabeledInput
           id={id}
-          inputId='job-title'
-          inputName='Job Title'
+          inputId='institution'
+          inputName='Institution'
           onChangeHandler={onChangeHandler}
         />
         <LabeledInput
           id={id}
-          inputId='company'
-          inputName='Company'
+          inputId='degree'
+          inputName='Degree'
+          onChangeHandler={onChangeHandler}
+        />
+        <LabeledInput
+          id={id}
+          inputId='subject'
+          inputName='Subject'
           onChangeHandler={onChangeHandler}
         />
         <LabeledInput
@@ -44,14 +50,6 @@ class ExpItem extends React.Component<ExpItemProps> {
           inputType='date'
           onChangeHandler={onChangeHandler}
         />
-        <LabeledInput
-          id={id}
-          inputId='job-duties'
-          inputName='Duties'
-          inputType='textarea'
-          onChangeHandler={onChangeHandler}
-          classes='span-full-width'
-        />
         <button
           className='del-btn span-full-width'
           onClick={() => handleDelete(id)}>
@@ -62,4 +60,4 @@ class ExpItem extends React.Component<ExpItemProps> {
   }
 }
 
-export default ExpItem;
+export default EduItem;
