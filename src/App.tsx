@@ -158,9 +158,11 @@ class App extends React.Component<{}, AppState> {
               onChangeHandler={this.handleEducationChange}
             />
           </div>
-          <div className='cv-preview'>
-            <CVPreview />
-          </div>
+          <CVPreview
+            personalInfo={this.state.personalInfo}
+            experience={this.state.experience}
+            education={this.state.education}
+          />
         </main>
         <footer>GitHub</footer>
       </div>

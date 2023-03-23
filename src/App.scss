@@ -32,12 +32,6 @@ main {
     border: 0.25rem solid $primary-color;
     padding: 1rem;
   }
-
-  .cv-preview {
-    @include cv-card;
-
-    box-shadow: 0 0 8px rgb(51, 51, 51);
-  }
 }
 
 footer {

@@ -1,0 +1,7 @@
+@import '../../globals.scss';
+
+.cv-preview {
+  @include cv-card;
+
+  box-shadow: 0 0 8px rgb(51, 51, 51);
+}
