@@ -22,6 +22,19 @@ class CVPreview extends React.Component<UserInfo> {
             <p className='telephone'>Phone: {personalInfo.telephone}</p>
           )}
         </header>
+        <div className='experience-container'>
+          {Object.keys(experience).map((key) => {
+            return (
+              <div className={`experience-${key}`}>
+                {experience[key].jobTitle}
+                {experience[key].company}
+                {experience[key].startDate}
+                {experience[key].endDate}
+                {experience[key].duties}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
