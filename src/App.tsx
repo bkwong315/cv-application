@@ -4,24 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
 import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
-import Experience from './interfaces/Experience';
-import Education from './interfaces/Education';
+import UserInfo from './interfaces/UserInfo';
 import CVPreview from './components/CVPreview/CVPreview';
 import './App.scss';
 
-interface AppState {
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-    address: string;
-    email: string;
-    telephone: string;
-  };
-  experience: { [key: string]: Experience };
-  education: { [key: string]: Education };
-}
-
-class App extends React.Component<{}, AppState> {
+class App extends React.Component<{}, UserInfo> {
   constructor(props: {}) {
     super(props);
     this.state = {
