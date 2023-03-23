@@ -6,6 +6,7 @@ import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
 import Experience from './interfaces/Experience';
 import Education from './interfaces/Education';
+import CVPreview from './components/CVPreview/CVPreview';
 import './App.scss';
 
 interface AppState {
@@ -157,7 +158,9 @@ class App extends React.Component<{}, AppState> {
               onChangeHandler={this.handleEducationChange}
             />
           </div>
-          <div className='cv-preview'></div>
+          <div className='cv-preview'>
+            <CVPreview />
+          </div>
         </main>
         <footer>GitHub</footer>
       </div>
