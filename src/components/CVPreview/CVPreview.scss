@@ -3,7 +3,14 @@
 .cv-preview {
   @include cv-card;
 
+  @media only screen and (min-width: 830px) {
+    position: sticky;
+    height: auto;
+    align-self: flex-start;
+  }
+
   box-shadow: 0 0 8px rgb(51, 51, 51);
+  top: 5vh;
 
   header {
     display: grid;
