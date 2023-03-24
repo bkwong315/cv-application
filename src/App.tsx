@@ -6,6 +6,7 @@ import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
 import UserInfo from './interfaces/UserInfo';
 import CVPreview from './components/CVPreview/CVPreview';
+import templateData from './templateData';
 import './App.scss';
 
 class App extends React.Component<{}, UserInfo> {
@@ -118,6 +119,10 @@ class App extends React.Component<{}, UserInfo> {
     }));
   };
 
+  handleUseTemplate = () => {
+    this.setState(templateData);
+  };
+
   render() {
     return (
       <div className='layout'>
@@ -144,6 +149,9 @@ class App extends React.Component<{}, UserInfo> {
               deleteHandler={this.handleDeleteEducation}
               onChangeHandler={this.handleEducationChange}
             />
+            <button className='template-btn' onClick={this.handleUseTemplate}>
+              Template
+            </button>
           </div>
           <CVPreview
             personalInfo={this.state.personalInfo}
