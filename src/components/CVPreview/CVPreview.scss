@@ -53,4 +53,25 @@
       grid-area: 3 / 1 / -1 / -1;
     }
   }
+
+  .edu-display-item {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 1rem;
+
+    .degree-display {
+      font-size: 1.25rem;
+    }
+
+    .institution-display {
+      grid-area: 2 / 1 / -1 / 1;
+    }
+
+    .edu-date-display {
+      align-self: center;
+      text-align: end;
+    }
+  }
 }

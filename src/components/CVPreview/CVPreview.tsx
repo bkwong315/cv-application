@@ -38,15 +38,19 @@ class CVPreview extends React.Component<UserInfo> {
             );
           })}
         </div>
-        <div className='education-container edu-display-item'>
+        <div className='education-container'>
           {Object.keys(education).map((key) => {
             return (
               <div key={`education-${key}`} className={'edu-display-item'}>
-                {education[key].institution}
-                {education[key].degree}
-                {education[key].subject}
-                {education[key].startDate}
-                {education[key].endDate}
+                <p className='degree-display'>
+                  {education[key].degree}, {education[key].subject}
+                </p>
+                <p className='institution-display'>
+                  {education[key].institution}
+                </p>
+                <p className='edu-date-display'>
+                  {education[key].startDate}-{education[key].endDate}
+                </p>
               </div>
             );
           })}
