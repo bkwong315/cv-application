@@ -19,4 +19,38 @@
       text-align: start;
     }
   }
+
+  .experience-container,
+  .education-container {
+    display: grid;
+  }
+
+  .exp-display-item {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 1rem;
+
+    .job-title-display {
+      grid-area: 1 / 1 / 2 / -1;
+
+      font-size: 1.5rem;
+    }
+
+    .company-name-display {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .exp-date-display {
+      grid-area: 1 / 2 / 2 / -1;
+
+      align-self: center;
+      text-align: end;
+    }
+
+    .duties-display {
+      grid-area: 3 / 1 / -1 / -1;
+    }
+  }
 }
