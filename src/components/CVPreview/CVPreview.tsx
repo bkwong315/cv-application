@@ -25,7 +25,7 @@ class CVPreview extends React.Component<UserInfo> {
         <div className='experience-container'>
           {Object.keys(experience).map((key) => {
             return (
-              <div className={`experience-${key}`}>
+              <div key={`experience-${key}`}>
                 {experience[key].jobTitle}
                 {experience[key].company}
                 {experience[key].startDate}
@@ -38,7 +38,7 @@ class CVPreview extends React.Component<UserInfo> {
         <div className='education-container'>
           {Object.keys(education).map((key) => {
             return (
-              <div className={`education-${key}`}>
+              <div key={`education-${key}`}>
                 {education[key].institution}
                 {education[key].degree}
                 {education[key].subject}
