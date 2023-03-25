@@ -35,15 +35,19 @@ class LabeledInput extends React.Component<LabeledInputProps> {
   }
 
   render() {
-    const {
+    let {
       id = '',
       inputId,
       inputName,
       inputType,
-      defaultValue,
+      defaultValue = '',
       classes,
       onChangeHandler,
     } = this.props;
+
+    if (inputType === 'date' && defaultValue !== '') {
+      defaultValue = new Date(defaultValue).toISOString().substring(0, 10);
+    }
 
     const onChangeWrapper = (
       e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
