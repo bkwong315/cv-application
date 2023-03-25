@@ -1,14 +1,9 @@
 import Experience from './Experience';
 import Education from './Education';
+import PersonalInfo from './PersonalInfo';
 
 interface UserInfo {
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-    address: string;
-    email: string;
-    telephone: string;
-  };
+  personalInfo: PersonalInfo;
   experience: { [key: string]: Experience };
   education: { [key: string]: Education };
 }
