@@ -6,6 +6,7 @@ interface LabeledInputProps {
   inputId: string;
   inputName: string;
   inputType?: string;
+  defaultValue?: string;
   classes?: string;
   id?: string;
   onChangeHandler:
@@ -39,6 +40,7 @@ class LabeledInput extends React.Component<LabeledInputProps> {
       inputId,
       inputName,
       inputType,
+      defaultValue,
       classes,
       onChangeHandler,
     } = this.props;
@@ -59,9 +61,10 @@ class LabeledInput extends React.Component<LabeledInputProps> {
             type={`${inputType}`}
             id={`${inputId}`}
             onChange={onChangeWrapper}
+            value={defaultValue}
           />
         ) : (
-          <textarea onChange={onChangeWrapper}></textarea>
+          <textarea onChange={onChangeWrapper} value={defaultValue}></textarea>
         )}
       </div>
     );

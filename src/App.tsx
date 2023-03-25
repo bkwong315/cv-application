@@ -133,6 +133,7 @@ class App extends React.Component<{}, UserInfo> {
           <div className='cv-builder'>
             <h3>Personal Information</h3>
             <PersonalInfoEditor
+              defaultValues={this.state.personalInfo}
               onChangeHandler={this.handlePersonalInfoChange}
             />
             <h3>Experience</h3>

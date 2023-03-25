@@ -26,6 +26,7 @@ class EducationEditor extends React.Component<EducationEditorProps> {
           <EduItem
             key={key}
             id={key}
+            defaultValues={education[key]}
             handleDelete={deleteHandler}
             onChangeHandler={onChangeHandler}
           />
