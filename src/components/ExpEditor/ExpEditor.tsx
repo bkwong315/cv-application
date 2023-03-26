@@ -29,6 +29,7 @@ class ExpEditor extends React.Component<ExpEditorProps> {
           <ExpItem
             key={key}
             id={key}
+            defaultValues={experiences[key]}
             handleDelete={handleDeleteExperience}
             onChangeHandler={handleExperienceChange}
           />

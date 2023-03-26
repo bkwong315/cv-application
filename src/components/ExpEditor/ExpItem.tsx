@@ -1,10 +1,12 @@
 import * as React from 'react';
 
 import LabeledInput from '../LabeledInput/LabeledInput';
+import Experience from '../../interfaces/Experience';
 import './ExpItem.scss';
 
 interface ExpItemProps {
   id: string;
+  defaultValues: Experience;
   handleDelete: (id: string) => void;
   onChangeHandler: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -15,19 +17,21 @@ interface ExpItemProps {
 
 class ExpItem extends React.Component<ExpItemProps> {
   render() {
-    const { id, handleDelete, onChangeHandler } = this.props;
+    const { id, defaultValues, handleDelete, onChangeHandler } = this.props;
     return (
       <div className='exp-item'>
         <LabeledInput
           id={id}
           inputId='job-title'
           inputName='Job Title'
+          defaultValue={defaultValues.jobTitle}
           onChangeHandler={onChangeHandler}
         />
         <LabeledInput
           id={id}
           inputId='company'
           inputName='Company'
+          defaultValue={defaultValues.company}
           onChangeHandler={onChangeHandler}
         />
         <LabeledInput
@@ -35,6 +39,7 @@ class ExpItem extends React.Component<ExpItemProps> {
           inputId='start-date'
           inputName='Start Date'
           inputType='date'
+          defaultValue={defaultValues.startDate}
           onChangeHandler={onChangeHandler}
         />
         <LabeledInput
@@ -42,6 +47,7 @@ class ExpItem extends React.Component<ExpItemProps> {
           inputId='end-date'
           inputName='End Date'
           inputType='date'
+          defaultValue={defaultValues.endDate}
           onChangeHandler={onChangeHandler}
         />
         <LabeledInput
@@ -49,6 +55,7 @@ class ExpItem extends React.Component<ExpItemProps> {
           inputId='job-duties'
           inputName='Duties'
           inputType='textarea'
+          defaultValue={defaultValues.duties}
           onChangeHandler={onChangeHandler}
           classes='span-full-width'
         />

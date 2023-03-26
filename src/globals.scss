@@ -15,7 +15,7 @@ $primary-color: rgb(46, 145, 158);
   }
 
   width: clamp(20vw, 35vw, 40vw);
-  min-height: 100%;
+  min-height: 85vh;
 }
 
 @mixin editor-item-grid {

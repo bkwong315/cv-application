@@ -4,23 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 import PersonalInfoEditor from './components/PersonalInfoEditor/PersonalInfoEditor';
 import EducationEditor from './components/EducationEditor/EducationEditor';
 import ExpEditor from './components/ExpEditor/ExpEditor';
-import Experience from './interfaces/Experience';
-import Education from './interfaces/Education';
+import UserInfo from './interfaces/UserInfo';
+import CVPreview from './components/CVPreview/CVPreview';
+import templateData from './templateData';
 import './App.scss';
 
-interface AppState {
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-    address: string;
-    email: string;
-    telephone: string;
-  };
-  experience: { [key: string]: Experience };
-  education: { [key: string]: Education };
-}
-
-class App extends React.Component<{}, AppState> {
+class App extends React.Component<{}, UserInfo> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -130,6 +119,10 @@ class App extends React.Component<{}, AppState> {
     }));
   };
 
+  handleUseTemplate = () => {
+    this.setState(templateData);
+  };
+
   render() {
     return (
       <div className='layout'>
@@ -138,26 +131,40 @@ class App extends React.Component<{}, AppState> {
         </header>
         <main>
           <div className='cv-builder'>
-            <h3>Personal Information</h3>
-            <PersonalInfoEditor
-              onChangeHandler={this.handlePersonalInfoChange}
-            />
-            <h3>Experience</h3>
-            <ExpEditor
-              experiences={this.state.experience}
-              handleAddExperience={this.handleAddExperience}
-              handleDeleteExperience={this.handleDeleteExperience}
-              handleExperienceChange={this.handleExperienceChange}
-            />
-            <h3>Education</h3>
-            <EducationEditor
-              education={this.state.education}
-              addHandler={this.handleAddEducation}
-              deleteHandler={this.handleDeleteEducation}
-              onChangeHandler={this.handleEducationChange}
-            />
+            <div className='personal-info-container'>
+              <h3>Personal Information</h3>
+              <PersonalInfoEditor
+                defaultValues={this.state.personalInfo}
+                onChangeHandler={this.handlePersonalInfoChange}
+              />
+            </div>
+            <div className='experience-container'>
+              <h3>Experience</h3>
+              <ExpEditor
+                experiences={this.state.experience}
+                handleAddExperience={this.handleAddExperience}
+                handleDeleteExperience={this.handleDeleteExperience}
+                handleExperienceChange={this.handleExperienceChange}
+              />
+            </div>
+            <div className='education-container'>
+              <h3>Education</h3>
+              <EducationEditor
+                education={this.state.education}
+                addHandler={this.handleAddEducation}
+                deleteHandler={this.handleDeleteEducation}
+                onChangeHandler={this.handleEducationChange}
+              />
+            </div>
+            <button className='template-btn' onClick={this.handleUseTemplate}>
+              Use Template Data
+            </button>
           </div>
-          <div className='cv-preview'></div>
+          <CVPreview
+            personalInfo={this.state.personalInfo}
+            experience={this.state.experience}
+            education={this.state.education}
+          />
         </main>
         <footer>GitHub</footer>
       </div>
