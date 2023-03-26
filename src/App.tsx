@@ -131,27 +131,33 @@ class App extends React.Component<{}, UserInfo> {
         </header>
         <main>
           <div className='cv-builder'>
-            <h3>Personal Information</h3>
-            <PersonalInfoEditor
-              defaultValues={this.state.personalInfo}
-              onChangeHandler={this.handlePersonalInfoChange}
-            />
-            <h3>Experience</h3>
-            <ExpEditor
-              experiences={this.state.experience}
-              handleAddExperience={this.handleAddExperience}
-              handleDeleteExperience={this.handleDeleteExperience}
-              handleExperienceChange={this.handleExperienceChange}
-            />
-            <h3>Education</h3>
-            <EducationEditor
-              education={this.state.education}
-              addHandler={this.handleAddEducation}
-              deleteHandler={this.handleDeleteEducation}
-              onChangeHandler={this.handleEducationChange}
-            />
+            <div className='personal-info-container'>
+              <h3>Personal Information</h3>
+              <PersonalInfoEditor
+                defaultValues={this.state.personalInfo}
+                onChangeHandler={this.handlePersonalInfoChange}
+              />
+            </div>
+            <div className='experience-container'>
+              <h3>Experience</h3>
+              <ExpEditor
+                experiences={this.state.experience}
+                handleAddExperience={this.handleAddExperience}
+                handleDeleteExperience={this.handleDeleteExperience}
+                handleExperienceChange={this.handleExperienceChange}
+              />
+            </div>
+            <div className='education-container'>
+              <h3>Education</h3>
+              <EducationEditor
+                education={this.state.education}
+                addHandler={this.handleAddEducation}
+                deleteHandler={this.handleDeleteEducation}
+                onChangeHandler={this.handleEducationChange}
+              />
+            </div>
             <button className='template-btn' onClick={this.handleUseTemplate}>
-              Template
+              Use Template Data
             </button>
           </div>
           <CVPreview
