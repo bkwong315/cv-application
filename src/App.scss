@@ -37,11 +37,6 @@ main {
     padding: 1rem;
   }
 
-  .cv-preview-wrapper {
-    align-self: flex-start;
-    top: 0;
-  }
-
   .template-btn {
     @include button($primary-color, rgba(46, 145, 158, 0.8));
 
