@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "latest",
@@ -37,7 +38,6 @@
     "style-loader": "latest",
     "ts-loader": "latest",
     "typescript": "latest",
-    "uuid": "^9.0.0",
     "webpack": "latest",
     "webpack-cli": "latest",
     "webpack-dev-server": "^4.12.0"
