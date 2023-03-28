@@ -21,58 +21,44 @@ interface LabeledInputProps {
       ) => void);
 }
 
-class LabeledInput extends React.Component<LabeledInputProps> {
-  public static defaultProps = {
-    inputType: 'text',
+const LabeledInput = (props: LabeledInputProps) => {
+  let {
+    id = '',
+    inputId,
+    inputName,
+    inputType,
+    defaultValue = '',
+    classes,
+    onChangeHandler,
+  } = props;
+
+  if (inputType === 'date' && defaultValue !== '') {
+    defaultValue = new Date(defaultValue).toISOString().substring(0, 10);
+  }
+
+  const onChangeWrapper = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const inputNameArr = inputName.split(' ');
+    inputNameArr[0] = inputNameArr[0].toLowerCase();
+    onChangeHandler(e, `${inputNameArr.join('')}`, id);
   };
 
-  inputValue: string;
-
-  constructor(props: LabeledInputProps) {
-    super(props);
-
-    this.inputValue = '';
-  }
-
-  render() {
-    let {
-      id = '',
-      inputId,
-      inputName,
-      inputType,
-      defaultValue = '',
-      classes,
-      onChangeHandler,
-    } = this.props;
-
-    if (inputType === 'date' && defaultValue !== '') {
-      defaultValue = new Date(defaultValue).toISOString().substring(0, 10);
-    }
-
-    const onChangeWrapper = (
-      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-      const inputNameArr = inputName.split(' ');
-      inputNameArr[0] = inputNameArr[0].toLowerCase();
-      onChangeHandler(e, `${inputNameArr.join('')}`, id);
-    };
-
-    return (
-      <div className={`${inputId}-wrapper input-wrapper ${classes || ''}`}>
-        <label htmlFor={inputId}>{inputName}</label>
-        {inputType !== 'textarea' ? (
-          <input
-            type={`${inputType}`}
-            id={`${inputId}`}
-            onChange={onChangeWrapper}
-            value={defaultValue}
-          />
-        ) : (
-          <textarea onChange={onChangeWrapper} value={defaultValue}></textarea>
-        )}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={`${inputId}-wrapper input-wrapper ${classes || ''}`}>
+      <label htmlFor={inputId}>{inputName}</label>
+      {inputType !== 'textarea' ? (
+        <input
+          type={`${inputType}`}
+          id={`${inputId}`}
+          onChange={onChangeWrapper}
+          value={defaultValue}
+        />
+      ) : (
+        <textarea onChange={onChangeWrapper} value={defaultValue}></textarea>
+      )}
+    </div>
+  );
+};
 
 export default LabeledInput;
