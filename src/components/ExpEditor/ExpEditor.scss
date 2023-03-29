@@ -1,9 +1,0 @@
-@import '../../globals.scss';
-
-.exp-editor {
-  .add-exp-btn {
-    @include button(#2ce80e, #37ff05);
-
-    font-size: 1rem;
-  }
-}

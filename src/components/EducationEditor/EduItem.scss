@@ -1,9 +1,0 @@
-@import '../../globals.scss';
-
-.edu-item {
-  @include editor-item-grid;
-
-  .del-btn {
-    @include button(#e00b00, #ff0b00);
-  }
-}
