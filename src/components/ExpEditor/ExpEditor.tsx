@@ -15,31 +15,30 @@ interface ExpEditorProps {
   ) => void;
 }
 
-class ExpEditor extends React.Component<ExpEditorProps> {
-  render() {
-    const {
-      experiences,
-      handleAddExperience,
-      handleDeleteExperience,
-      handleExperienceChange,
-    } = this.props;
-    return (
-      <div className='exp-editor'>
-        {Object.keys(experiences).map((key) => (
-          <ExpItem
-            key={key}
-            id={key}
-            defaultValues={experiences[key]}
-            handleDelete={handleDeleteExperience}
-            onChangeHandler={handleExperienceChange}
-          />
-        ))}
-        <button className='add-exp-btn' onClick={handleAddExperience}>
-          Add Experience
-        </button>
-      </div>
-    );
-  }
-}
+const ExpEditor = (props: ExpEditorProps) => {
+  const {
+    experiences,
+    handleAddExperience,
+    handleDeleteExperience,
+    handleExperienceChange,
+  } = props;
+
+  return (
+    <div className='exp-editor'>
+      {Object.keys(experiences).map((key) => (
+        <ExpItem
+          key={key}
+          id={key}
+          defaultValues={experiences[key]}
+          handleDelete={handleDeleteExperience}
+          onChangeHandler={handleExperienceChange}
+        />
+      ))}
+      <button className='add-exp-btn' onClick={handleAddExperience}>
+        Add Experience
+      </button>
+    </div>
+  );
+};
 
 export default ExpEditor;

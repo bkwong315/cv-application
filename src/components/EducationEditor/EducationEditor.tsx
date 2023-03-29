@@ -15,28 +15,25 @@ interface EducationEditorProps {
   ) => void;
 }
 
-class EducationEditor extends React.Component<EducationEditorProps> {
-  render() {
-    const { education, addHandler, deleteHandler, onChangeHandler } =
-      this.props;
+const EducationEditor = (props: EducationEditorProps) => {
+  const { education, addHandler, deleteHandler, onChangeHandler } = props;
 
-    return (
-      <div className='edu-editor'>
-        {Object.keys(education).map((key) => (
-          <EduItem
-            key={key}
-            id={key}
-            defaultValues={education[key]}
-            handleDelete={deleteHandler}
-            onChangeHandler={onChangeHandler}
-          />
-        ))}
-        <button className='add-edu-btn' onClick={addHandler}>
-          Add Education
-        </button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className='edu-editor'>
+      {Object.keys(education).map((key) => (
+        <EduItem
+          key={key}
+          id={key}
+          defaultValues={education[key]}
+          handleDelete={deleteHandler}
+          onChangeHandler={onChangeHandler}
+        />
+      ))}
+      <button className='add-edu-btn' onClick={addHandler}>
+        Add Education
+      </button>
+    </div>
+  );
+};
 
 export default EducationEditor;
