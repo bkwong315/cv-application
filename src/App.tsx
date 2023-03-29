@@ -150,7 +150,11 @@ const App = () => {
           education={education}
         />
       </main>
-      <footer>GitHub</footer>
+      <footer>
+        <a href='https://github.com/bkwong315/cv-application' target={'_blank'}>
+          GitHub
+        </a>
+      </footer>
     </div>
   );
 };
